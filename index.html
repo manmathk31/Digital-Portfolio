@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: #fafafa;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #FF8C00;
+            transform: scale(1.1);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        #about {
+            background: #FFF0F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        #about .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1800px;
+        }
+
+        /* Profile Image */
+        #about .profile-img-container {
+            flex-shrink: 0;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 60px;
+        }
+
+        #about img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            /* Circle shape */
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #about img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 99, 71, 0.7);
+        }
+
+        #about .text {
+            max-width: 900px;
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* RGB Light Effect Line */
+        .rgb-line {
+            width: 2px;
+            height: 300px;
+            /* Set height for vertical line */
+            background: linear-gradient(180deg, rgba(255, 0, 0, 1) 0%, rgba(255, 255, 0, 1) 20%, rgba(0, 255, 0, 1) 40%, rgba(0, 255, 255, 1) 60%, rgba(0, 0, 255, 1) 80%, rgba(255, 0, 255, 1) 100%);
+            background-size: 400% 100%;
+            animation: rgb-effect 3s linear infinite;
+            margin-right: 40px;
+            /* Space between image and text */
+        }
+
+        @keyframes rgb-effect {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        #skills {
+            padding: 60px 20px;
+            background-color: #f9fbfd;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #222;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            width: 70px;
+            height: 3px;
+            background: #00bcd4;
+            display: block;
+            margin: 12px auto 0;
+            border-radius: 3px;
+        }
+
+        .skills-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .skill-item {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            padding: 25px 20px;
+            width: 140px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 188, 212, 0.15);
+        }
+
+        .skill-item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 12px;
+        }
+
+        .skill-item p {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+            margin: 0;
+        }
+
+
+        /* Certificates Section Styles */
+        #certificates {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .certificate {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate p {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 5px;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .certificate:hover img {
+            transform: scale(1.1);
+        }
+
+
+        /* Contact Section */
+        #contact {
+            background: #1c1c1c;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            border-radius: 12px;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #FF8C00;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .contact-description {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-icon img {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #FF8C00;
+            transform: scale(1.1);
+        }
+
+        .social-icon:hover img {
+            transform: scale(1.2);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #333;
+            color: white;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #FF8C00;
+            outline: none;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #FF8C00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #FF4500;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#Projects">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="home-content">
+            <!-- Main Title -->
+            <h1 class="main-title">Welcome to My Portfolio</h1>
+            <!-- Intro Text -->
+            <p class="intro-text">I'm a passionate engineer with a creative mind, always exploring new technologies and
+                looking for exciting challenges. Let's connect and create something amazing together!</p>
+
+            <!-- Buttons -->
+            <div class="buttons-container">
+                <a href="#about" class="cta-btn">Learn More About Me</a>
+                <a href="" class="cta-btn secondary" target="_blank">My Resume</a>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Home Section */
+        #home {
+            background: linear-gradient(135deg, #6ee7b7, #3b82f6);
+            /* Soft vibrant gradient background */
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-bottom-left-radius: 10% 10%;
+            border-bottom-right-radius: 10% 10%;
+        }
+
+        .home-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Main Title */
+        .main-title {
+            font-size: 4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInText 2s ease-out;
+        }
+
+        /* Intro Text */
+        .intro-text {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.85;
+            animation: fadeInText 3s ease-out 1s;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Buttons */
+        .buttons-container {
+            margin-top: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #FF8C00;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1.5px;
+        }
+
+        .cta-btn:hover {
+            background-color: #FF4500;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 69, 0, 0.5);
+        }
+
+        .cta-btn.secondary {
+            background-color: transparent;
+            border: 2px solid #FF8C00;
+            color: #FF8C00;
+            padding: 15px 30px;
+        }
+
+        .cta-btn.secondary:hover {
+            background-color: #FF8C00;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="profile-img-container">
+                    <img src="" alt="Profile Picture">
+                </div>
+                <div class="rgb-line"></div>
+                <div class="text">
+                    <h2>About Me</h2>
+                    <p>I'm Manmath Kornule a First year AI&ML student exploring the world of technology. I enjoy learning new
+                        skills, solving problems, and working on challenging projects. My areas of interest include
+                        software development, data science, and robotics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="skills-container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-list">
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+                    <p>HTML</p>
+                </div>
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+                    <p>CSS</p>
+                </div>
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript">
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Python">
+                    <p>Python</p>
+                </div>
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                        alt="C++">
+                    <p>C++</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <div class="container">
+            <h2 class="section-title">My Certificates</h2>
+            <div class="certificates-container">
+                <div class="certificate" onclick="enlargeCertificate(this)">
+                    <img src="" alt="Certificate 1">
+                    <p>Certificate 1</p>
+                </div>
+                <div class="certificate" onclick="enlargeCertificate(this)">
+                    <img src="" alt="Certificate 2">
+                    <p>Certificate 2</p>
+                </div>
+                <div class="certificate" onclick="enlargeCertificate(this)">
+                    <img src="" alt="Certificate 3">
+                    <p>Certificate 3</p>
+                </div>
+                <div class="certificate" onclick="enlargeCertificate(this)">
+                    <img src="" alt="Certificate 4">
+                    <p>Certificate 4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p class="contact-description">Feel free to reach out to me via any of the following platforms!</p>
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="mailto:202401110045@mitaoe.ac.in" class="social-icon" target="_blank" title="Email">
+                    <img src="https://img.icons8.com/ios/50/000000/gmail.png" alt="Gmail">
+                </a>
+                <a href="https://www.linkedin.com/in/your-profile" class="social-icon" target="_blank" title="LinkedIn">
+                    <img src="https://img.icons8.com/ios/50/000000/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.instagram.com/your-profile" class="social-icon" target="_blank" title="Instagram">
+                    <img src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="Instagram">
+                </a>
+                <a href="https://github.com/your-profile" class="social-icon" target="_blank" title="GitHub">
+                    <img src="https://img.icons8.com/ios/50/000000/github.png" alt="GitHub">
+                </a>
+            </div>
+
+            <!-- Contact Form -->
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Change navigation bar background color on scroll
+        window.addEventListener('scroll', function () {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        // JavaScript Function to Enlarge Certificate
+        function enlargeCertificate(element) {
+            // Reset all certificates
+            const certificates = document.querySelectorAll('.certificate');
+            certificates.forEach(cert => {
+                cert.style.transform = 'scale(1)';
+                cert.style.zIndex = '1';
+            });
+
+            // Enlarge the clicked certificate
+            element.style.transform = 'scale(1.5)';
+            element.style.zIndex = '10';
+        }
+
+    </script>
+</body>
+
+</html>
